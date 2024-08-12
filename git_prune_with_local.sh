@@ -11,12 +11,18 @@ fi
 
 PRUNED=`git fetch $REMOTE --prune 2>&1 | while read L; do echo "$L%%%"; done`
 
+echo "Remote:"
 echo $PRUNED | sed 's/%%%/\n/g'
 echo "Local:"
 echo $PRUNED | sed 's/%%%/\n/g' | \
 	grep "\[deleted\]" | \
 	sed "s/.*$REMOTE\///g" | \
-	xargs git branch -D
+	while read BRANCH; do
+		BRANCH_EXISTS=`git branch -l $BRANCH`
+		if [ -n "$BRANCH_EXISTS" ] ; then
+			git branch -D $BRANCH
+		fi
+	done
 echo
 echo "Done."
 
