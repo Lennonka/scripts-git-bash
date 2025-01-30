@@ -8,3 +8,6 @@ Git Utility Scripts for Bash
 - **git_prune_with_local.sh** - prunes the local branches that were deleted in the remote repo
 
 .. [*] The remote in this script has a non-standard name for my own purposes and you may need to adapt it for your repo setup.
+
+CHAAAAAANGE
+
