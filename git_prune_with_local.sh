@@ -1,13 +1,11 @@
 #!/bin/bash
 
+REMOTE=origin
+
 if [ -n "$1" ] && git remote | grep -q $1 ; then
 	REMOTE=$1
-	echo "Pruning $REMOTE and removing corresponding local branches."
-else
-	echo "You must enter a valid remote:"
-	git remote
-	exit 1
 fi
+echo "Pruning $REMOTE and removing corresponding local branches."
 
 PRUNED=`git fetch $REMOTE --prune 2>&1 | while read L; do echo "$L%%%"; done`
 
