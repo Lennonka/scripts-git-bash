@@ -7,7 +7,7 @@ if [ -z "$1" -o -z "$2" ]; then
 	exit 1
 else
 	ID=$1
-	BRANCHNAME=$2
+	BRANCHNAME=`echo $2 | sed 's/^.*://'`
 fi
 
 # Modify the remote repo name to your repo setup - this is not the standard name!
