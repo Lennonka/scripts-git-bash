@@ -11,6 +11,7 @@ git config --global alias.un "reset HEAD --"  # unstage
 git config --global alias.ls 'diff --name-status HEAD^' # list changed files
 git config --global alias.cp 'cherry-pick'
 git config --global alias.difff 'diff --cached'
+git config --global alias.last 'show -s --pretty=medium' # view full msg of last commit
 echo "done"
 echo "I: This is your global git configuration now:"
 git config --list --global | while read L; do printf "     $L\n"; done
